@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html ng-app="app1">
+	<head lang="en">
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200' rel='stylesheet' type='text/css'/>
+		<link rel="stylesheet" type="text/css" media="only screen and (min-width:769px)"  href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" media="only screen and (max-width:768px)" href="css/style_phone.css"/>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<link rel="shortcut icon" href="img/icon.ico"/>
+		<script>
+		document.body.addEventListener('touchstart', function(e){ e.preventDefault(); });
+		</script>
+		<style>
+		[ng\:cloak], [ng-cloak], .ng-cloak {
+			display: none;
+		}
+		</style>
+
+	</head>
+
+    <body>
+
+        <div class="wrapper">
+			
+				<div class="header">
+					<a href="#">
+						<div class="name">
+							Chelsea Finnie
+						</div>
+					</a>
+					<div class="mobi_menu">
+						☰
+					</div>
+					
+					<div class="button">
+						<div class="header-text">
+							Profile
+						</div>
+						<a href="#/profile">
+							<div class="on-hover opt1">
+								<div class="header-text">
+									Profile
+								</div>
+							</div>
+						</a>
+					</div>
+					
+					
+					<div class="button">
+						<div class="header-text">
+							Abilities
+						</div>
+						<a href="#/abilities">
+							<div class="on-hover opt2">
+								<div class="header-text">
+									Abilities
+								</div>
+							</div>
+						</a>
+					</div>
+					
+					
+					<div class="button">
+						<div class="header-text">
+							Experiences
+						</div>
+						<a href="#/experiences">
+							<div class="on-hover opt3">
+								<div class="header-text">
+									Experiences
+								</div>
+							</div>
+						</a>
+					</div>
+					
+					
+					<div class="button">
+						<div class="header-text">
+							Projects
+						</div>	
+						<a href="#/projects">
+							<div class="on-hover opt4">
+								<div class="header-text">
+									Projects
+								</div>
+							</div>
+						</a>
+					</div>
+					
+					
+					<div class="button">
+						<div class="header-text">
+							Contact
+						</div>	
+						<a href="#/contact">
+							<div class="on-hover opt5">
+								<div class="header-text">
+									Contact
+								</div>
+							</div>
+						</a>
+					</div>
+					
+					
+				</div>
+			<div class="menu_box">
+				<a href="#/profile">
+					<div class="mobi_button opt1">
+						Profile
+					</div>
+				</a>
+				<a href="#/abilities">
+					<div class="mobi_button opt2">
+						Abilities
+					</div>
+				</a>
+				<a href="#/experiences">
+					<div class="mobi_button opt3">
+						Experiences
+					</div>
+				</a>
+				<a href="#/projects">
+					<div class="mobi_button opt4">
+						Projects
+					</div>
+				</a>
+				<a href="#/contact">
+					<div class="mobi_button opt5">
+						Contact
+					</div>
+				</a>
+			</div>
+			<div class="container">
+				<div class="screen view1" ng-controller="landing-ctrl">
+					<img ng-src="img/{{landing[0].hash}}" alt="Landing" class="landing_img"/>
+					<div class="landing_txt">
+						{{landing[0].title}}
+					</div>
+				</div>
+				<div class="screen view2">
+
+					<div class="det_box" ng-controller="personal-ctrl">
+						<h1 class="det">Name:</h1>
+						{{name}}</br>
+						<h1 class="det">Age:</h1>
+						{{age}} Years</br>
+						<h1 class="det">Location:</h1>
+						{{mylocation}}
+					
+					</div>
+					<div class="photo_box" ng-controller="photo-ctrl">
+						<img ng-src="{{myphoto}}" alt="ProfilePhoto" class="photo_img"/>					
+					</div>
+					<div class="about_box" ng-controller="about-ctrl">
+						<h1 class="det">About Me:</h1>
+						{{about}}
+					</div>
+				</div>
+				<div class="screen view3">
+					<div class="header_txt">
+						Skills
+					</div>
+					<div class="outer-box">
+						<div class="list-box" ng-controller="skills-ctrl">
+							<ul ng-repeat="skill in skills">
+								<a ng-href="{{skill.hash}}" target="_blank"><li>{{skill.stext}}</li></a>
+							</ul>
+						</div>
+					</div>
+					<div class="header_txt">
+						Tools
+					</div>
+					<div class="outer-box">
+						<div class="list-box" ng-controller="tools-ctrl">
+							<ul ng-repeat="tool in tools">
+								<a ng-href="{{tool.hash}}" target="_blank"><li>{{tool.ttext}}</li></a>
+							</ul>
+						</div>
+					</div>
+					<div class="margin">
+					</div>
+				</div>
+				<div class="screen view4">
+					<div class="header_txt">
+						Work History
+					</div>
+					<div class="outer-box">
+						<div class="exp-box" ng-controller="work-ctrl">
+							<ul ng-repeat="work in works">
+								<li><div class="exp-left"><h1 class="exp">{{work.company}}</h1>{{work.dates}}</div><div class="exp-right"><h1 class="exp2">{{work.title}}</h1>
+									{{work.desc}}
+								</div></li>
+							</ul>
+						</div>
+					</div>
+					<div class="header_txt">
+						Education
+					</div>
+					<div class="outer-box">
+						<div class="exp-box" ng-controller="edu-ctrl">
+							<ul ng-repeat="edu in edus">
+								<li><div class="exp-left"><h1 class="exp">{{edu.company}}</h1>{{edu.dates}}</div><div class="exp-right"><h1 class="exp2">{{edu.title}}</h1>
+									{{edu.desc}}
+								</div></li>
+							</ul>
+						</div>
+					</div>
+					<div class="margin">
+					</div>
+				</div>
+				<div class="screen view5">
+					<div class="header_txt">
+						Projects
+					</div>
+					<div class="outer-box">
+						<div class="pro-box" ng-controller="project-ctrl">
+							<ul ng-repeat="project in projects">
+								<li><div class="proj_shadow"></div><img ng-src="img/{{project.hash}}" alt="ProjectPhoto" class="proj_img"/><div class="proj_over"></div><div class="proj_desc">{{project.title}}</div><div class="proj_under"></div><div class="proj_info">{{project.info}}</div><div class="proj_tags">{{project.tags}}</div></li>
+							</ul>
+						</div>
+					</div>
+					<div class="margin">
+					</div>
+				</div>
+				<div class="screen view6">
+
+					<div class="contact_txt" ng-controller="contact-ctrl">
+						{{contact}}<a ng-href="{{emailhash}}">{{email}}</a></br>
+						<a ng-href="https://github.com/{{githash}}">{{gtext}}</a>
+					</div>
+				</div>
+			
+			</div>
+
+
+
+        </div>
+
+		<script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>		
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.min.js"></script>
+ 
+		<script src="js/data.js"></script>
+		
+		<script type="text/javascript" src="js/main.js"></script>
+    </body>
+
+</html>
